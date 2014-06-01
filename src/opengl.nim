@@ -145,8 +145,10 @@ type
   TGLuint* = uint32
   TGLsizei* = int32
   TGLfloat* = float32
+  PGLfloat* = ptr TGLfloat
   TGLclampf* = float32
   TGLdouble* = float64
+  PGLdouble* = ptr TGLdouble
   TGLclampd* = float64
   TGLeglImageOES* = distinct pointer
   TGLchar* = char
@@ -3000,6 +3002,7 @@ wrapErrorChecking:
   proc glTexGenivOES(coord: GLenum, pname: GLenum, params: ptr GLint) {.importc.}
   proc glIsFramebufferOES(framebuffer: GLuint): TGLboolean {.importc.}
   proc glColor4ubv(v: ptr GLubyte) {.importc.}
+  proc glColor4ubv(v: TGLVectorub4) {.importc.}
   proc glDeleteNamedStringARB(namelen: GLint, name: cstring) {.importc.}
   proc glCopyConvolutionFilter1DEXT(target: GLenum, internalformat: GLenum, x: GLint, y: GLint, width: GLsizei) {.importc.}
   proc glBufferStorage(target: GLenum, size: GLsizeiptr, data: ptr pointer, flags: GLbitfield) {.importc.}
